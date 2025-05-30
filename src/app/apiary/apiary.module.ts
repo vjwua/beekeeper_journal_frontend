@@ -9,7 +9,7 @@ import { RouterModule } from '@angular/router';
     ApiaryFormComponent,
     RouterModule.forChild([
       { path: '', component: ApiaryComponent },
-      { path: 'new', component: ApiaryFormComponent },
+      { path: 'create', component: ApiaryFormComponent },
       { path: ':id/edit', component: ApiaryFormComponent },
     ]),
   ],

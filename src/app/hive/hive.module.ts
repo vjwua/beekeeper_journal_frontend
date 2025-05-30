@@ -9,7 +9,7 @@ import { RouterModule } from '@angular/router';
     HiveFormComponent,
     RouterModule.forChild([
       { path: '', component: HiveComponent },
-      { path: 'new', component: HiveFormComponent },
+      { path: 'create', component: HiveFormComponent },
       { path: ':id/edit', component: HiveFormComponent },
     ]),
   ],

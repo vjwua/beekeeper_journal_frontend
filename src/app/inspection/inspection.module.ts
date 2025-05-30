@@ -9,7 +9,7 @@ import { RouterModule } from '@angular/router';
     InspectionFormComponent,
     RouterModule.forChild([
       { path: '', component: InspectionComponent },
-      { path: 'new', component: InspectionFormComponent },
+      { path: 'create', component: InspectionFormComponent },
       { path: ':id/edit', component: InspectionFormComponent },
     ]),
   ],
