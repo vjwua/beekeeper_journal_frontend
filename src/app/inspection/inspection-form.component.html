@@ -1,0 +1,57 @@
+<div class="p-4 max-w-xl mx-auto">
+  <h2 class="text-2xl font-bold mb-4">
+    {{ isEdit ? 'Edit Inspection' : 'Create Inspection' }}
+  </h2>
+
+  <form [formGroup]="form" (ngSubmit)="onSubmit()" class="space-y-4">
+    <div>
+      <label class="block font-medium mb-1">Hive *</label>
+      <select formControlName="hiveId" class="w-full border px-3 py-2 rounded">
+        <option value="" disabled>Select a hive</option>
+        <option *ngFor="let hive of hives" [value]="hive.id">
+          {{ hive.name }}
+        </option>
+      </select>
+      <div *ngIf="form.controls['hiveId'].invalid && form.controls['hiveId'].touched" class="text-red-600 text-sm">
+        Hive is required.
+      </div>
+    </div>
+
+    <div>
+      <label class="block font-medium mb-1">Date *</label>
+      <input
+        type="date"
+        formControlName="date"
+        class="w-full border px-3 py-2 rounded"
+      />
+      <div *ngIf="form.controls['date'].invalid && form.controls['date'].touched" class="text-red-600 text-sm">
+        Date is required.
+      </div>
+    </div>
+
+    <div>
+      <label class="block font-medium mb-1">Notes</label>
+      <textarea
+        formControlName="notes"
+        rows="3"
+        class="w-full border px-3 py-2 rounded"
+      ></textarea>
+    </div>
+
+    <div>
+      <label class="block font-medium mb-1">Actions</label>
+      <textarea
+        formControlName="actions"
+        rows="3"
+        class="w-full border px-3 py-2 rounded"
+      ></textarea>
+    </div>
+
+    <div class="flex justify-between items-center">
+      <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700" [disabled]="form.invalid">
+        {{ isEdit ? 'Update' : 'Create' }}
+      </button>
+      <a routerLink="/inspections" class="text-gray-600 hover:underline">Cancel</a>
+    </div>
+  </form>
+</div>

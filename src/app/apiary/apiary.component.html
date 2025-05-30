@@ -1,0 +1,38 @@
+<div class="p-4">
+  <h2 class="text-2xl font-bold mb-4">Apiaries</h2>
+
+  <button
+    class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700 mb-4"
+    (click)="goToCreate()"
+  >
+    + Add Apiary
+  </button>
+
+  <div *ngIf="loading">Loading...</div>
+
+  <table *ngIf="!loading" class="table-auto w-full border">
+    <thead>
+      <tr class="bg-gray-200">
+        <th class="px-4 py-2 border">Name</th>
+        <th class="px-4 py-2 border">Location</th>
+        <th class="px-4 py-2 border">Description</th>
+        <th class="px-4 py-2 border">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let apiary of apiaries">
+        <td class="border px-4 py-2">{{ apiary.name }}</td>
+        <td class="border px-4 py-2">{{ apiary.location || '—' }}</td>
+        <td class="border px-4 py-2">{{ apiary.description || '—' }}</td>
+        <td class="border px-4 py-2 space-x-2">
+          <button class="text-blue-600 hover:underline" (click)="goToEdit(apiary.id!)">
+            Edit
+          </button>
+          <button class="text-red-600 hover:underline" (click)="deleteApiary(apiary.id!)">
+            Delete
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
